@@ -1,0 +1,15 @@
+# Backend ignores
+backend/node_modules/
+backend/.env
+backend/npm-debug.log
+
+# Frontend ignores
+to-do-app/node_modules/
+to-do-app/.env
+to-do-app/build/
+to-do-app/.DS_Store
+
+# General ignores
+.DS_Store
+.env.local
+*.log
