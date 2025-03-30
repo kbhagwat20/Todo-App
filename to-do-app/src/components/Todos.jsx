@@ -17,7 +17,7 @@ const Todos = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await axios.get(`/api/todos/${date}`);
+        const response = await axios.get(`https://todo-app-41c5.onrender.com/api/todos/${date}`);
 
         // Ensure we always get an array
         const data = Array.isArray(response.data) ? response.data : [];
@@ -35,7 +35,7 @@ const Todos = () => {
     if (inputText.trim()) {
       try {
         const api = axios.create({
-          baseURL: import.meta.env.PROD ? '/api' : 'http://localhost:5000'
+          baseURL: import.meta.env.PROD ? 'https://todo-app-41c5.onrender.com' : 'http://localhost:5000'
         });
         
         // Then use api instead of axios:
@@ -55,7 +55,7 @@ const Todos = () => {
   const toggleTodo = async (id) => {
     try {
       const todo = todos.find((t) => t._id === id);
-      const response = await axios.patch(`/api/todos/${id}`, {
+      const response = await axios.patch(`https://todo-app-41c5.onrender.com/api/todos/${id}`, {
         completed: !todo.completed,
       });
       setTodos(todos.map((t) => (t._id === id ? response.data : t)));
@@ -66,7 +66,7 @@ const Todos = () => {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`/api/todos/${id}`);
+      await axios.delete(`https://todo-app-41c5.onrender.com/api/todos/${id}`);
       setTodos(todos.filter((t) => t._id !== id));
     } catch (err) {
       console.error(err);
